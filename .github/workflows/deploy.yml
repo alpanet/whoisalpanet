@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # Kullandığınız Node.js sürümünü buraya yazın
+          node-version: '16'  # Kullandığınız Node.js sürümünü buraya yazın
 
       # Adım 3: Bağımlılıkları kur
       - name: Install dependencies
