@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 ShadCN/UI Projesi
 
-## Getting Started
+Bu proje **ShadCN/UI, Next.js ve TailwindCSS** kullanılarak geliştirilmiştir.
 
-First, run the development server:
+## 📌 Kullanılan Teknolojiler
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js** – React tabanlı framework  
+- **TailwindCSS** – CSS framework  
+- **ShadCN/UI** – UI bileşen kütüphanesi  
+- **pnpm** – Daha hızlı ve verimli bir paket yöneticisi  
+
+---
+
+## 📥 Kurulum
+
+Öncelikle, proje dosyalarını klonlayın:
+
+```
+git clone https://github.com/kullaniciadiniz/repo-adi.git
+cd repo-adi
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🔧 **1. pnpm Yükleme**
+Bu projede `pnpm` kullanıyoruz. Eğer sisteminizde yüklü değilse, aşağıdaki adımları takip ederek kurabilirsiniz.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### **➡ macOS için:**
+**Homebrew ile yüklemek için:**
+```
+brew install pnpm
+```
+Homebrew yüklü değilse, önce aşağıdaki komutla yükleyebilirsiniz:
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+Daha fazla bilgi için: [brew.sh](https://brew.sh/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### **➡ Windows için:**
+**Chocolatey ile yüklemek için:**
+```
+choco install pnpm
+```
+Chocolatey yüklü değilse, önce PowerShell üzerinden şu komutla yükleyebilirsiniz:
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+Daha fazla bilgi için: [chocolatey.org](https://chocolatey.org/install)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### 🔧 **2. Bağımlılıkları Yükleyin**
+```
+pnpm install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🚀 **3. Projeyi Çalıştırın**
+Geliştirme modunda başlatmak için:
+```
+pnpm run dev
+```
+Proje çalıştırıldıktan sonra [http://localhost:3000](http://localhost:3000) adresinden erişebilirsiniz.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ **Ekstra Komutlar**
+Build almak için:
+```
+pnpm run build
+```
+Static export almak için:
+```
+pnpm run export
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
