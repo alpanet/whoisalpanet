@@ -27,8 +27,9 @@ jobs:
           npm run export
 
       - name: Deploy to GitHub Pages
-        run: |
-          npm install gh-pages --save-dev
-          npm run deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: main
+          folder: out
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
