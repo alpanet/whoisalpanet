@@ -1,0 +1,39 @@
+name: Deploy Next.js to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Veya deploy etmek istediğiniz branch ismini buraya yazın
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # Ubuntu üzerine işlemleri yapıyoruz
+
+    steps:
+      # Adım 1: Repository'i checkout et
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Adım 2: Node.js ortamını kur
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Kullandığınız Node.js sürümünü buraya yazın
+
+      # Adım 3: Bağımlılıkları kur
+      - name: Install dependencies
+        run: npm install
+
+      # Adım 4: Next.js build ve export işlemleri
+      - name: Build and export Next.js site
+        run: |
+          npm run build    # Next.js uygulamasını build eder
+          npm run export   # Next.js uygulamasını dışa aktarır (out dizinine)
+
+      # Adım 5: GitHub Pages'e deploy et
+      - name: Deploy to GitHub Pages
+        run: |
+          npm install gh-pages --save-dev    # gh-pages paketini kurar
+          npm run deploy    # Deploy komutunu çalıştırır
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub token'ı kullanılır, bu secret otomatik olarak sağlanır
