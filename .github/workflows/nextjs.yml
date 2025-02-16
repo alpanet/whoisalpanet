@@ -28,7 +28,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies 🔧
-        run: npm install
+        run: npm install babel-loader @mdx-js/loader
 
       - name: Ensure latest Next.js and plugins 🛠️
         run: npm update next @next/mdx remark-gfm @mapbox/rehype-prism
