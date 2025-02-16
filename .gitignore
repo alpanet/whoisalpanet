@@ -1,49 +1,35 @@
-### Genel ###
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
 .DS_Store
-Thumbs.db
-*.log
+*.pem
+
+# debug
 npm-debug.log*
 yarn-debug.log*
-pnpm-debug.log*
+yarn-error.log*
 
-### Node.js ###
-node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
-.npm/
-.nvmrc
-.npmrc
+# local env files
+.env*.local
 
-### Next.js ###
-.next/
-out/
-.vercel/
-.netlify/
+# vercel
+.vercel
 
-### Çevresel Değişkenler ###
-.env*
-!.env.example
-
-### Yapı ve Dağıtım ###
-dist/
-build/
-coverage/
-.cache/
-*.gz
-*.br
-
-### TypeScript ###
+# typescript
 *.tsbuildinfo
-
-### IDE ve Editör Dosyaları ###
-.vscode/
-.idea/
-*.swp
-*.swo
-
-### Diğer ###
-*.log
-*.pid
-*.seed
-*.tgz
+next-env.d.ts
