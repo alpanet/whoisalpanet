@@ -30,6 +30,9 @@ jobs:
       - name: Install dependencies 🔧
         run: npm install
 
+      - name: Ensure latest Next.js and plugins 🛠️
+        run: npm update next @next/mdx remark-gfm @mapbox/rehype-prism
+
       - name: Setup Pages ⚙️
         uses: actions/configure-pages@v5
         with:
@@ -38,13 +41,13 @@ jobs:
       - name: Build with Next.js 🏗️
         run: npx next build
 
-      - name: Check build output 🛠️
-        run: ls -la ./out
+      - name: Debug Next.js Build Output 📂
+        run: ls -la .next
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: .next  # Eğer "out" yerine ".next" klasörü kullanılıyorsa burayı değiştir
 
   deploy:
     environment:
