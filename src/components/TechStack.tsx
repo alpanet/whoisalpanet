@@ -8,37 +8,37 @@ export const TechStack = () => {
   const stack = [
     {
       title: "Next.js",
-      src: "/images/logos/next.png",
+      src: "/whoisalpanet/images/logos/next.png",
 
       className: "h-10 w-14",
     },
     {
       title: "Figma",
-      src: "/images/logos/figma.png",
+      src: "/whoisalpanet/images/logos/figma.png",
 
       className: "h-10 w-8",
     },
     {
       title: "Framer Motion",
-      src: "/images/logos/framer.webp",
+      src: "/whoisalpanet/images/logos/framer.webp",
 
       className: "h-10 w-10",
     },
     {
       title: "Node",
-      src: "/images/logos/node.png",
+      src: "/whoisalpanet/images/logos/node.png",
 
       className: "h-10 w-12",
     },
     {
       title: "Tailwind",
-      src: "/images/logos/tailwind.png",
+      src: "/whoisalpanet/images/logos/tailwind.png",
 
       className: "h-10 w-24",
     },
     {
       title: "Vercel",
-      src: "/images/logos/vercel.png",
+      src: "/whoisalpanet/images/logos/vercel.png",
 
       className: "h-10 w-24",
     },

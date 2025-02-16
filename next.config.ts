@@ -1,21 +1,13 @@
-import nextMDX from "@next/mdx";
-import remarkGfm from "remark-gfm";
-import rehypePrism from "@mapbox/rehype-prism";
+import type { NextConfig } from "next";
 
-const withMDX = nextMDX({
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypePrism],
-  },
-});
-
-const nextConfig = withMDX({
+const nextConfig: NextConfig = {
+  output: 'export',
+  basePath: '/whoisalpanet',
+  assetPrefix: '/whoisalpanet',
   reactStrictMode: true,
   images: {
-    domains: ["images.unsplash.com", "res.cloudinary.com"],
-    unoptimized: true,
-  },
-});
+    unoptimized: true
+}
+};
 
 export default nextConfig;
