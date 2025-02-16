@@ -31,7 +31,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Ensure latest Next.js and plugins 🛠️
-        run: npm update next @next/mdx remark-gfm @mapbox/rehype-prism
+        run: npm update next @next/mdx remark-gfm @mapbox/rehype-prism --legacy-peer-deps
 
       - name: Setup Pages ⚙️
         uses: actions/configure-pages@v5
