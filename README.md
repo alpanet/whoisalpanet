@@ -1,4 +1,4 @@
-# 🚀 ShadCN/UI Projesi
+# 🚀 Alpanet Resume Projesi
 
 Bu proje **ShadCN/UI, Next.js ve TailwindCSS** kullanılarak geliştirilmiştir.
 
