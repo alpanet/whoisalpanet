@@ -28,7 +28,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies 🔧
-        run: npm install  # ✅ `npm ci` yerine `npm install` kullan
+        run: npm install
 
       - name: Setup Pages ⚙️
         uses: actions/configure-pages@v5
@@ -44,7 +44,7 @@ jobs:
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out  # ✅ Statik export çıktısını doğru dizinden al
+          path: ./out
 
   deploy:
     environment:
