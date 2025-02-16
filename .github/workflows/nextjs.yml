@@ -28,7 +28,7 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies 🔧
-        run: npm ci
+        run: npm install  # ✅ `npm ci` yerine `npm install` kullan
 
       - name: Setup Pages ⚙️
         uses: actions/configure-pages@v5
