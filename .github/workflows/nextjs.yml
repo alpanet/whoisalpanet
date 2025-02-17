@@ -29,12 +29,9 @@ jobs:
 
       - name: Install dependencies 🔧
         run: npm install --legacy-peer-deps
-        
+
       - name: Build with Next.js 🏗️
         run: npm run build
-
-      - name: Debug Next.js Build Output 📂
-        run: ls -la .next
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
