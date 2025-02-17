@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
       title: "Projects | Alpaslan DOGAN",
       description:
-        "John Doe is a developer, writer and speaker. He is a digital nomad and travels around the world while working remotely.",
+        "Alpaslan DOGAN—an ever-evolving developer, passionate designer",
     };
   }
 }

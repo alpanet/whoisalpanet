@@ -6,11 +6,11 @@ import { motion } from "framer-motion";
 
 export default function About() {
   const images = [
-    "/images/projects/visobl.png",
-    "/images/projects/mibu.webp",
-    "/images/projects/blendy.png",
-    "/images/projects/rx.png",
-    "/images/projects/sigortacimuzman.png",
+    "images/projects/visobl.png",
+    "images/projects/mibu.webp",
+    "images/projects/blendy.png",
+    "images/projects/rx.png",
+    "images/projects/sigortacimuzman.png",
   ];
   return (
     <div>
