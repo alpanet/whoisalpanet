@@ -11,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Alpaslan DOGAN - Frontend & UI/UX Developer",
+  title: "John Doe - Developer",
   description:
-    "Alpaslan DOGAN is a Frontend and UI/UX developer, video editor, AI/ML interested. He is a digital worker and while working remotely.",
+    "John Doe is a developer, writer and speaker. He is a digital nomad and travels around the world while working remotely.",
 };
 
 export default function RootLayout({

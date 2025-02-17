@@ -2,43 +2,48 @@ import Image from "next/image";
 import React from "react";
 import { Heading } from "./Heading";
 import { twMerge } from "tailwind-merge";
-import { Marquee } from "@/components/ui/marquee"
 
 export const TechStack = () => {
   const stack = [
     {
       title: "Next.js",
-      src: "/whoisalpanet/images/logos/next.png",
+      src: "/images/logos/next.png",
 
       className: "h-10 w-14",
     },
     {
+      title: "AWS",
+      src: "/images/logos/aws.webp",
+
+      className: "h-10 w-10",
+    },
+    {
       title: "Figma",
-      src: "/whoisalpanet/images/logos/figma.png",
+      src: "/images/logos/figma.png",
 
       className: "h-10 w-8",
     },
     {
       title: "Framer Motion",
-      src: "/whoisalpanet/images/logos/framer.webp",
+      src: "/images/logos/framer.webp",
 
       className: "h-10 w-10",
     },
     {
       title: "Node",
-      src: "/whoisalpanet/images/logos/node.png",
+      src: "/images/logos/node.png",
 
       className: "h-10 w-12",
     },
     {
       title: "Tailwind",
-      src: "/whoisalpanet/images/logos/tailwind.png",
+      src: "/images/logos/tailwind.png",
 
       className: "h-10 w-24",
     },
     {
       title: "Vercel",
-      src: "/whoisalpanet/images/logos/vercel.png",
+      src: "/images/logos/vercel.png",
 
       className: "h-10 w-24",
     },
@@ -52,19 +57,16 @@ export const TechStack = () => {
         Tech Stack
       </Heading>
       <div className="flex flex-wrap">
-        <Marquee>
-          {stack.map((item) => (
-            <Image
-              src={item.src}
-              key={item.src}
-              width={`200`}
-              height={`200`}
-              alt={item.title}
-              className={twMerge("object-contain mr-4 mb-4", item.className)}
-            />
-          ))}
-        </Marquee>
-
+        {stack.map((item) => (
+          <Image
+            src={item.src}
+            key={item.src}
+            width={`200`}
+            height={`200`}
+            alt={item.title}
+            className={twMerge("object-contain mr-4 mb-4", item.className)}
+          />
+        ))}
       </div>
     </div>
   );

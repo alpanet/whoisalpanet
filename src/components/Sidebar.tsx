@@ -31,6 +31,9 @@ export const Sidebar = () => {
               <SidebarHeader />
               <Navigation setOpen={setOpen} />
             </div>
+            <div onClick={() => isMobile() && setOpen(false)}>
+              <Badge href="/resume" text="Read Resume" />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -61,8 +64,8 @@ export const Navigation = ({
           href={link.href}
           onClick={() => isMobile() && setOpen(false)}
           className={twMerge(
-            "text-black hover:text-blue-600 transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
-            isActive(link.href) && "bg-white shadow-lg text-blue-600"
+            "text-secondary hover:text-primary transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
+            isActive(link.href) && "bg-white shadow-lg text-primary"
           )}
         >
           <link.icon
@@ -83,7 +86,7 @@ export const Navigation = ({
           key={link.href}
           href={link.href}
           className={twMerge(
-            "text-gray-900 hover:text-primary transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
+            "text-secondary hover:text-primary transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
           )}
         >
           <link.icon
@@ -103,15 +106,15 @@ const SidebarHeader = () => {
   return (
     <div className="flex space-x-2">
       <Image
-        src="/whoisalpanet/images/avatar/alpaslandogan.jpg"
+        src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80"
         alt="Avatar"
         height="40"
         width="40"
         className="object-cover object-top rounded-full flex-shrink-0"
       />
       <div className="flex text-sm flex-col">
-        <p className="font-bold text-primary">Alpaslan DOGAN</p>
-        <p className="font-light text-gray-900">Frontend UI/UX Developer</p>
+        <p className="font-bold text-primary">John Doe</p>
+        <p className="font-light text-secondary">Developer</p>
       </div>
     </div>
   );
