@@ -8,7 +8,7 @@ export default function About() {
   const images = [
     "images/projects/visobl.png",
     "images/projects/mibu.webp",
-    "images/projects/blendy.png",
+    "images/projects/blendy-horizontal.png",
     "images/projects/rx.png",
     "images/projects/sigortacimuzman.png",
   ];

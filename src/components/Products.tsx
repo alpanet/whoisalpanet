@@ -28,7 +28,7 @@ export const Products = () => {
             <Link
               href={product.href}
               key={product.href}
-              className="group flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 hover:bg-gray-50 rounded-2xl transition duration-200 pt-4"
+              className="group flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 hover:bg-gray-50 rounded-2xl transition duration-200 pt-4 items-center"
             >
               <Image
                 src={product.thumbnail}
@@ -49,7 +49,7 @@ export const Products = () => {
                     {product.description}
                   </Paragraph>
                 </div>
-                <div className="space-x-2 md:mb-1 mt-2 md:mt-2">
+                <div className="flex flex-wrap gap-2 md:mb-1 mt-2 md:mt-2">
                   {product.stack?.map((stack: string) => (
                     <span
                       key={stack}

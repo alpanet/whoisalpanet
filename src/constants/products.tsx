@@ -14,7 +14,7 @@ export const products = [
       "I have been involved in the Visobl project from the very beginning and continue to contribute actively. Throughout the project, I have taken on various roles, with a primary focus on front-end development and UI/UX design. Using React, Next.js, and multiple frameworks, I have built user-friendly interfaces and designed applications. While my main expertise lies in front-end development, I have also contributed to the backend, ensuring the overall integrity of the system.",
     thumbnail: visobl,
     images: [visobl, visobl],
-    stack: ["React", "Nextjs", "Tailwindcss", "Bootstrap", ".Typescript", "Figma", "Canva", "MSSql", ".net", " ", "Premiere Pro"],
+    stack: ["React", "Nextjs", "Tailwindcss", "Bootstrap", ".Typescript", "Figma", "Canva", "MSSql", ".net", "Premiere Pro"],
     slug: "aceternity",
     content: (
       <div>
