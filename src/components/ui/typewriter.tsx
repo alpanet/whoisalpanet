@@ -3,6 +3,8 @@ import { useEffect, useState } from "react"
 import { motion, Variants } from "framer-motion"
 
 import { cn } from "@/lib/utils"
+import { useMemo } from "react"
+
 
 interface TypewriterProps {
   text: string | string[]
@@ -52,7 +54,7 @@ const Typewriter = ({
   const [isDeleting, setIsDeleting] = useState(false)
   const [currentTextIndex, setCurrentTextIndex] = useState(0)
 
-  const texts = Array.isArray(text) ? text : [text]
+  const texts = useMemo(() => (Array.isArray(text) ? text : [text]), [text])
 
   useEffect(() => {
     let timeout: NodeJS.Timeout
@@ -106,6 +108,7 @@ const Typewriter = ({
     texts,
     currentTextIndex,
     loop,
+    initialDelay
   ])
 
   return (
