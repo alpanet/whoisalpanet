@@ -29,7 +29,7 @@ export default function Home() {
 
   const downloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/resume/ALPASLAN-DOGAN-RESUME.pdf";
+    link.href = "https://alpanet.github.io/whoisalpanet/resume/ALPASLAN-DOGAN-RESUME.pdf";
     link.download = "ALPASLAN-DOGAN-RESUME.pdf";
     document.body.appendChild(link);
     link.click();
