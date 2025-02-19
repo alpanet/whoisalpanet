@@ -39,7 +39,7 @@ export const products = [
     href: "https://blendy.app/",
     title: "Blendy",
     description:
-      "We started the Mibu project based on an idea that was brought to us, asking how we could contribute to the emerging ChatGPT and AI ecosystem. Throughout the process, we created multiple app designs and, after finalizing the most suitable one, we moved on to development. As a result, we successfully built the application and launched it on the App Store for users to access. https://blendy.app/",
+      "I joined the Blendy project later and primarily took on roles in design adjustments, website design, and social media management. I carried out various optimizations to enhance the user experience and strengthen the brand’s digital presence. https://blendy.app/",
     thumbnail: blendyHorizontal,
     images: [blendyHorizontal, blendyHorizontal],
     stack: ["Nextjs", "shadcnUI", "Tailwindcss", "Figma"],
