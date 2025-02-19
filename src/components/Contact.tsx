@@ -4,8 +4,9 @@ import ReCAPTCHA from "react-google-recaptcha";
 import emailjs from "emailjs-com";
 import { Button } from "./ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { useId } from "react";
+import { useToast } from "@/hooks/use-toast"
+
 
 const defaultFormState = {
   name: {
@@ -22,6 +23,7 @@ const defaultFormState = {
   },
 };
 export const Contact = () => {
+  const { toast } = useToast()
   const [formData, setFormData] = useState(defaultFormState);
   const id = useId();
   const [captchaVerified, setCaptchaVerified] = useState(false);
@@ -44,9 +46,16 @@ export const Contact = () => {
       emailjs
         .sendForm("service_85ppvxo", "template_gbh6alt", e.target, "ZpNgHVQAS4hLGwM9v")
         .then((response) => {
+          toast({
+            description: "Your message has been sent.",
+          })
           console.log("Email sent successfully:", response);
         })
         .catch((error) => {
+          toast({
+            variant:"destructive",
+            description: "Error sending email:",
+          })
           console.error("Error sending email:", error);
         });
     }
