@@ -8,7 +8,7 @@ import kidsapp from "public/images/projects/KidsApp.png";
 
 export const products = [
   {
-    href: "/projects/visobl",
+    href: "#",
     title: "Visobl",
     description:
       "I have been involved in the Visobl project from the very beginning and continue to contribute actively. Throughout the project, I have taken on various roles, with a primary focus on front-end development and UI/UX design. Using React, Next.js, and multiple frameworks, I have built user-friendly interfaces and designed applications. While my main expertise lies in front-end development, I have also contributed to the backend, ensuring the overall integrity of the system.",
@@ -22,7 +22,7 @@ export const products = [
     ),
   },
   {
-    href: "/projects/mibu",
+    href: "#",
     title: "Mibu",
     description:
       "We started the Mibu project based on an idea that was brought to us, asking how we could contribute to the emerging ChatGPT and AI ecosystem. Throughout the process, we created multiple app designs and, after finalizing the most suitable one, we moved on to development. As a result, we successfully built the application and launched it on the App Store for users to access.",
@@ -50,7 +50,7 @@ export const products = [
     ),
   },
   {
-    href: "/projects/kidsapp",
+    href: "#",
     title: "Kids App",
     description:
       "KidsApp is a personal project I started working on with the goal of helping manage the amount of time children spend on their phones. Currently, I am working on app designs and the business model, and the project is still in the development phase.",
