@@ -7,6 +7,7 @@ import { Products } from "@/components/Products";
 import { TechStack } from "@/components/TechStack";
 import Image from "next/image";
 import { Typewriter } from "@/components/ui/typewriter"
+import DownloadCv from "@/components/DownloadCv";
 
 export default function Home() {
   return (
@@ -32,6 +33,7 @@ export default function Home() {
       <Paragraph className="max-w-xl mt-4">
         {`Whether it's crafting scalable web apps, designing intuitive interfaces, or developing AI-driven solutions like my crypto trading bot, Alpanet-AI, I’m always pushing the boundaries of what’s possible.`}
       </Paragraph>
+      <DownloadCv></DownloadCv>
       <Heading
         as="h2"
         className="font-black text-lg md:text-lg lg:text-lg mt-20 mb-4"
