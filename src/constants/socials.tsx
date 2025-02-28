@@ -8,21 +8,6 @@ import {
 
 export const socials = [
   {
-    href: "https://www.instagram.com/alpaslanndogan",
-    label: "Instagram",
-    icon: IconBrandInstagram,
-  },
-  {
-    href: "https://linkedin.com/in/alpaslanndogan",
-    label: "LinkedIn",
-    icon: IconBrandLinkedin,
-  },
-  {
-    href: "https://www.youtube.com/@AlpanetOffical",
-    label: "YouTube",
-    icon: IconBrandYoutube,
-  },
-  {
     href: "https://github.com/alpanet",
     label: "Github",
     icon: IconBrandGithub,
@@ -32,4 +17,20 @@ export const socials = [
     label: "Figma",
     icon: IconBrandFigma,
   },
+  {
+    href: "https://linkedin.com/in/alpaslanndogan",
+    label: "LinkedIn",
+    icon: IconBrandLinkedin,
+  },
+  {
+    href: "https://www.instagram.com/alpaslanndogan",
+    label: "Instagram",
+    icon: IconBrandInstagram,
+  },
+  {
+    href: "https://www.youtube.com/@AlpanetOffical",
+    label: "YouTube",
+    icon: IconBrandYoutube,
+  },
+
 ];
