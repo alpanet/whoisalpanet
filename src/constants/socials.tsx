@@ -28,7 +28,7 @@ export const socials = [
     icon: IconBrandGithub,
   },
   {
-    href: "https://www.figma.com/design/jdBE5uSNnkLWgejvtp8eCQ/Backup%26Preview",
+    href: "https://www.figma.com/proto/jdBE5uSNnkLWgejvtp8eCQ/Backup%26Preview?node-id=196-7573&p=f&t=JsaSPJtqpr0SFel3-1&scaling=scale-down&content-scaling=fixed&page-id=155%3A255&starting-point-node-id=196%3A7573&show-proto-sidebar=1",
     label: "Figma",
     icon: IconBrandFigma,
   },
