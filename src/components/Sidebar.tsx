@@ -12,6 +12,7 @@ import { Badge } from "./Badge";
 import { AnimatePresence, motion } from "framer-motion";
 import { IconLayoutSidebarRightCollapse } from "@tabler/icons-react";
 import { isMobile } from "@/lib/utils";
+import { ModeToggle } from "./ModeToggle";
 
 export const Sidebar = () => {
   const [open, setOpen] = useState(isMobile() ? false : true);
@@ -25,7 +26,7 @@ export const Sidebar = () => {
             animate={{ x: 0 }}
             transition={{ duration: 0.2, ease: "linear" }}
             exit={{ x: -200 }}
-            className="px-6  z-[100] py-10 bg-neutral-100 max-w-[14rem] lg:w-fit  fixed lg:relative  h-screen left-0 flex flex-col justify-between"
+            className="px-6  z-[100] py-10 border dark:border-gray-600 bg-background text-foreground max-w-[14rem] lg:w-fit  fixed lg:relative  h-screen left-0 flex flex-col justify-between"
           >
             <div className="flex-1 overflow-auto">
               <SidebarHeader />
@@ -35,11 +36,12 @@ export const Sidebar = () => {
         )}
       </AnimatePresence>
       <button
-        className="fixed lg:hidden bottom-4 right-4 h-12 w-12 border border-neutral-800 rounded-full backdrop-blur-sm flex items-center justify-center z-50"
+        className="fixed lg:hidden bottom-20 right-5 h-12 w-12 border border-neutral-800 rounded-full backdrop-blur-sm flex items-center justify-center z-50 dark:bg-white"
         onClick={() => setOpen(!open)}
       >
         <IconLayoutSidebarRightCollapse className="h-6 w-6 text-black" />
       </button>
+      <ModeToggle></ModeToggle>
     </>
   );
 };
@@ -61,8 +63,8 @@ export const Navigation = ({
           href={link.href}
           onClick={() => isMobile() && setOpen(false)}
           className={twMerge(
-            "text-gray-500 hover:text-black transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
-            isActive(link.href) && "bg-white shadow-lg text-black"
+            "text-gray-500 hover:text-black dark hover:text-white transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
+            isActive(link.href) && "bg-white shadow-lg border border-slate-100 text-black dark:text-black"
           )}
         >
           <link.icon
@@ -84,7 +86,7 @@ export const Navigation = ({
           href={"/"}
           onClick={()=> window.open(link.href, "_blank")}
           className={twMerge(
-            "text-gray-500 hover:text-black transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
+            "text-gray-500 hover:text-black dark hover:text-white transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
           )}
         >
           <link.icon

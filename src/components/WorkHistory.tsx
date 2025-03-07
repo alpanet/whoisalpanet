@@ -21,7 +21,7 @@ export const WorkHistory = () => {
           <div>
             <Heading
               as="h5"
-              className="text-lg md:text-lg lg:text-lg text-blue-500"
+              className="text-lg md:text-lg lg:text-lg text-blue-500 dark:text-blue-50"
             >
               {item.company}
             </Heading>

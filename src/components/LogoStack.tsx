@@ -117,7 +117,7 @@ const allLogos = [
 
 function TextShimmerBasic() {
     return (
-        <TextShimmer className='font-mono text-3xl' duration={1}>
+        <TextShimmer className='font-mono text-3xl dark:text-white' duration={1}>
             My Technologies...
         </TextShimmer>
     );
