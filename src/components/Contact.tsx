@@ -73,7 +73,7 @@ export const Contact = () => {
   return (
     <form className="form" onSubmit={handleSubmit}>
       <div className="flex flex-col md:flex-row justify-between gap-5">
-        <input
+        <Input
           type="text"
           name="name"
           placeholder="Your Name"
@@ -120,7 +120,7 @@ export const Contact = () => {
           placeholder="Your Message"
           name="message"
           rows={10}
-          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 mt-4 py-2 rounded-md text-sm text-neutral-700 w-full"
+          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 mt-4 py-2 rounded-md text-sm text-neutral-700 w-full dark:placeholder:text-neutral-700"
           value={formData.message.value}
           onChange={(e) => {
             setFormData({
