@@ -26,7 +26,7 @@ export const Sidebar = () => {
             animate={{ x: 0 }}
             transition={{ duration: 0.2, ease: "linear" }}
             exit={{ x: -200 }}
-            className="px-6  z-[100] py-10 border dark:border-gray-600 bg-background text-foreground max-w-[14rem] lg:w-fit  fixed lg:relative  h-screen left-0 flex flex-col justify-between"
+            className="px-6  z-[100] py-10 border dark:border-gray-700 rounded bg-background text-foreground max-w-[14rem] lg:w-fit  fixed lg:relative  h-screen left-0 flex flex-col justify-between"
           >
             <div className="flex-1 overflow-auto">
               <SidebarHeader />
@@ -113,7 +113,7 @@ const SidebarHeader = () => {
         className="object-cover object-top rounded-full flex-shrink-0"
       />
       <div className="flex text-sm flex-col">
-        <p className="font-bold text-black">Alpaslan DOGAN</p>
+        <p className="font-bold text-black dark:text-white">Alpaslan DOGAN</p>
         <p className="font-light text-gray-500">Frontend UI/UX Developer</p>
       </div>
     </div>
