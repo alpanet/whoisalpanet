@@ -5,9 +5,9 @@ export const timeline = [
     date: "03/2022 - Present",
     description: "Open Banking - Ads",
     responsibilities: [
-      "Web , Mobile app design and flows",
-      "Web development",
-      "UI/UX development",
+      "web_mobile_app",
+      "web_deployment",
+      "ui_ux",
     ],
   },
   {
@@ -16,8 +16,8 @@ export const timeline = [
     date: "06/2021 - 03/2022",
     description: "Open Banking",
     responsibilities: [
-      "Web development",
-      "UI/UX development",
+      "web_deployment",
+      "ui_ux",
     ],
   },
   {
@@ -26,7 +26,7 @@ export const timeline = [
     date: "08/2016 - 06/2021",
     description: "Building the future of social networking",
     responsibilities: [
-      "I have contributed to numerous projects, taking on various roles and responsibilities across different domains."
+      "i_have_contributed_to"
     ],
   },
 ];
