@@ -13,10 +13,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { IconLayoutSidebarRightCollapse } from "@tabler/icons-react";
 import { isMobile } from "@/lib/utils";
 import { ModeToggle } from "./ModeToggle";
+import { LanguageToggle } from "./LanguageToggle";
+import { useTranslation } from "react-i18next";
 
 export const Sidebar = () => {
   const [open, setOpen] = useState(isMobile() ? false : true);
-
   return (
     <>
       <AnimatePresence>
@@ -36,12 +37,13 @@ export const Sidebar = () => {
         )}
       </AnimatePresence>
       <button
-        className="fixed lg:hidden bottom-20 right-5 h-12 w-12 border border-neutral-800 rounded-full backdrop-blur-sm flex items-center justify-center z-50 dark:bg-white"
+        className="fixed lg:hidden bottom-36 right-5 h-12 w-12 border border-neutral-800 rounded-full backdrop-blur-sm flex items-center justify-center z-50 dark:bg-white"
         onClick={() => setOpen(!open)}
       >
         <IconLayoutSidebarRightCollapse className="h-6 w-6 text-black" />
       </button>
       <ModeToggle></ModeToggle>
+      <LanguageToggle></LanguageToggle>
     </>
   );
 };
@@ -54,7 +56,7 @@ export const Navigation = ({
   const pathname = usePathname();
 
   const isActive = (href: string) => pathname === href;
-
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col space-y-1 my-10 relative z-[100]">
       {navlinks.map((link: Navlink) => (
@@ -63,7 +65,7 @@ export const Navigation = ({
           href={link.href}
           onClick={() => isMobile() && setOpen(false)}
           className={twMerge(
-            "text-gray-500 hover:text-black dark hover:text-white transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
+            "text-gray-500 hover:text-black dark:hover:text-white transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
             isActive(link.href) && "bg-white shadow-lg border border-slate-100 text-black dark:text-black"
           )}
         >
@@ -73,18 +75,18 @@ export const Navigation = ({
               isActive(link.href) && "text-sky-500"
             )}
           />
-          <span>{link.label}</span>
+          <span>{t(link.label)}</span>
         </Link>
       ))}
 
       <Heading as="p" className="text-sm md:text-sm lg:text-sm pt-10 px-2">
-        Socials
+        {t("Social")}
       </Heading>
       {socials.map((link: Navlink) => (
         <Link
           key={link.href}
           href={"/"}
-          onClick={()=> window.open(link.href, "_blank")}
+          onClick={() => window.open(link.href, "_blank")}
           className={twMerge(
             "text-gray-500 hover:text-black dark hover:text-white transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
           )}
