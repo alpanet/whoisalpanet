@@ -82,7 +82,7 @@ export const Contact = () => {
         {t("reach_out_to_me_over")}
       </Paragraph>
       <form className="form" onSubmit={handleSubmit}>
-        <div className="flex flex-col md:flex-row justify-between gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Input
             type="text"
             name="name"
@@ -99,7 +99,7 @@ export const Contact = () => {
               });
             }}
           />
-          <div className="space-y-2 min-w-[300px]">
+          <div className="space-y-2">
             <Input
               id={id}
               type="email"
@@ -123,7 +123,6 @@ export const Contact = () => {
               </p> : ""
             }
           </div>
-
         </div>
         <div>
           <textarea

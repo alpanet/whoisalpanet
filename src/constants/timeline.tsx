@@ -1,6 +1,6 @@
 export const timeline = [
   {
-    company: "Ming Teknoloji",
+    company: "Ming Teknoloji (Remote)",
     title: "Senior Frontend Developer",
     date: "04/2025 - Present",
     description: "İnsan Kaynakları Yönetim Sistemi",
@@ -9,7 +9,7 @@ export const timeline = [
     ],
   },
   {
-    company: "Metadata Bilişim - Visobl - Freedompay (Full remote)",
+    company: "Metadata Bilişim - Visobl - Freedompay (Remote)",
     title: "Senior Frontend Developer / UI - UX Designer",
     date: "03/2022 - 03/2025",
     description: "Open Banking - Ads",

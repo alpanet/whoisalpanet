@@ -7,43 +7,79 @@ import { useTranslation } from "react-i18next";
 
 export const GithubActivity = () => {
     const { t } = useTranslation();
-    const [commitCount, setCommitCount] = useState<number | null>(null);
+    const [commitCount, setCommitCount] = useState<number>(0);
+    const [lastPushTime, setLastPushTime] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchCommits = async () => {
             try {
-                const response = await fetch("https://api.github.com/users/alpanet/events");
+                // Cache busting ile her zaman taze veri
+                const response = await fetch(`https://api.github.com/users/alpanet/events?t=${new Date().getTime()}`, {
+                    cache: 'no-store',
+                    headers: {
+                        'Cache-Control': 'no-cache'
+                    }
+                });
+
                 if (!response.ok) throw new Error("GitHub API error");
 
                 const events = await response.json();
                 const today = new Date().toDateString();
                 let count = 0;
+                let latestEventDate: Date | null = null;
 
-                events.forEach((event: any) => {
+                // En son push eventini ve bugünkü commit sayısını bul
+                for (const event of events) {
                     if (event.type === "PushEvent") {
-                        const eventDate = new Date(event.created_at).toDateString();
-                        if (eventDate === today) {
+                        const eventDate = new Date(event.created_at);
+
+                        // En son push tarihini al (ilk bulduğu en yenisidir)
+                        if (!latestEventDate) {
+                            latestEventDate = eventDate;
+                        }
+
+                        // Bugün atılanları say
+                        if (eventDate.toDateString() === today) {
                             count += event.payload.size;
                         }
                     }
-                });
+                }
 
                 setCommitCount(count);
+
+                // Eğer bugün commit yoksa ama geçmişte varsa zamanı formatla
+                if (count === 0 && latestEventDate) {
+                    const diffInSeconds = Math.floor((new Date().getTime() - latestEventDate.getTime()) / 1000);
+
+                    if (diffInSeconds < 60) {
+                        setLastPushTime(t("just_now"));
+                    } else if (diffInSeconds < 3600) {
+                        setLastPushTime(`${Math.floor(diffInSeconds / 60)} ${t("minutes_ago")}`);
+                    } else if (diffInSeconds < 86400) {
+                        setLastPushTime(`${Math.floor(diffInSeconds / 3600)} ${t("hours_ago")}`);
+                    } else {
+                        setLastPushTime(`${Math.floor(diffInSeconds / 86400)} ${t("days_ago")}`);
+                    }
+                } else {
+                    setLastPushTime(null);
+                }
+
             } catch (error) {
                 console.error("Failed to fetch Github activity", error);
-                setCommitCount(null);
+                setCommitCount(0);
             } finally {
                 setLoading(false);
             }
         };
 
         fetchCommits();
-    }, []);
+    }, [t]);
 
-    if (loading || commitCount === null) return null;
+    if (loading) return null;
 
-    const hasCommits = commitCount > 0;
+    // Eğer bugün commit varsa commit sayısını, yoksa son push zamanını göster
+    const hasActivity = commitCount > 0 || lastPushTime !== null;
 
     return (
         <AnimatePresence>
@@ -52,8 +88,8 @@ export const GithubActivity = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="relative group mt-4 overflow-hidden rounded-xl"
             >
-                {/* Arka plan gradient efekti - sadece commit varsa */}
-                {hasCommits && (
+                {/* Arka plan gradient efekti - sadece aktivite varsa */}
+                {hasActivity && (
                     <div className="absolute inset-0 bg-gradient-to-r from-green-500/20 to-emerald-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
                 )}
 
@@ -61,7 +97,7 @@ export const GithubActivity = () => {
                 <div className={`
           relative flex items-center justify-between p-2.5 
           border transition-all duration-300
-          ${hasCommits
+          ${hasActivity
                         ? "bg-green-50/50 dark:bg-green-900/10 border-green-200 dark:border-green-800"
                         : "bg-gray-50/50 dark:bg-white/5 border-gray-200 dark:border-white/10"
                     }
@@ -71,7 +107,7 @@ export const GithubActivity = () => {
                     <div className="flex items-center gap-2.5">
                         <div className={`
               p-1.5 rounded-md transition-colors
-              ${hasCommits ? "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400" : "bg-gray-100 dark:bg-neutral-800 text-gray-500"}
+              ${hasActivity ? "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400" : "bg-gray-100 dark:bg-neutral-800 text-gray-500"}
             `}>
                             <IconBrandGithub size={16} stroke={2} />
                         </div>
@@ -81,10 +117,13 @@ export const GithubActivity = () => {
                                 {t("latest_push")}
                             </span>
                             <div className="flex items-center gap-1.5">
-                                <span className={`text-xs font-semibold ${hasCommits ? "text-green-700 dark:text-green-400" : "text-gray-600 dark:text-gray-400"}`}>
-                                    {hasCommits ? `${commitCount} ${t("commits")}` : t("no_activity")}
+                                <span className={`text-xs font-semibold ${hasActivity ? "text-green-700 dark:text-green-400" : "text-gray-600 dark:text-gray-400"}`}>
+                                    {commitCount > 0
+                                        ? `${commitCount} ${t("commits")}`
+                                        : (lastPushTime || t("no_activity"))
+                                    }
                                 </span>
-                                {hasCommits && (
+                                {commitCount > 0 && (
                                     <motion.span
                                         animate={{ scale: [1, 1.2, 1] }}
                                         transition={{ repeat: Infinity, duration: 2 }}

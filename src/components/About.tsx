@@ -57,27 +57,27 @@ export default function About() {
           ))}
         </div>
 
-        <div className="max-w-4xl">
-          <Paragraph className=" mt-4">
+        <div className="max-w-full">
+          <Paragraph className="mt-4 text-justify">
             {t("hey_im_alpaslan_DOGAN_an_ever_evolving")}
           </Paragraph>
 
-          <Paragraph className=" mt-4">
+          <Paragraph className="mt-4 text-justify">
             {t("one_of_my_proudest_achievements")}
           </Paragraph>
-          <Paragraph className=" mt-4">
+          <Paragraph className="mt-4 text-justify">
             {t("as_time_passed_my_curiosity")}
           </Paragraph>
-          <Paragraph className=" mt-4">
+          <Paragraph className="mt-4 text-justify">
             {t("my_journey_didnt_stop")}
           </Paragraph>
-          <Paragraph className=" mt-4">
+          <Paragraph className="mt-4 text-justify">
             {t("when_i_wasnt_immersed")}
           </Paragraph>
-          <Paragraph className=" mt-4">
+          <Paragraph className="mt-4 text-justify">
             {t("through_it_all_one_thing")}
           </Paragraph>
-          <Paragraph className=" mt-4 text-bold">
+          <Paragraph className="mt-4 text-justify font-bold">
             {t("thanks_for_joining_me")}
           </Paragraph>
         </div>

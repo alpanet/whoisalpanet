@@ -57,7 +57,7 @@ function DownloadCv() {
         <PopoverTrigger asChild>
           <Button variant="outline" className="mt-4 mb-0 bg-black text-white">{t("download_resume")}</Button>
         </PopoverTrigger>
-        <PopoverContent className="max-w-[340px] py-3 shadow-none" side="bottom">
+        <PopoverContent className="max-w-[340px] py-3 shadow-none mx-2" side="top">
           <div className="space-y-3">
             <div className="space-y-4">
               <p className="text-lg font-medium font-black">{t("drop_your_email_to_get_my_cv")}</p>
@@ -66,7 +66,7 @@ function DownloadCv() {
                   {t("want_to_check_out_my_cv")}
                 </Paragraph>
                 <Paragraph className="max-w-xl mt-4">
-                {t("once_you_complete_the_reCAPTCHA")}
+                  {t("once_you_complete_the_reCAPTCHA")}
                 </Paragraph>
               </div>
               <div className="min-w-[290px] space-y-2 ">

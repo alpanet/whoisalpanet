@@ -22,10 +22,17 @@
     "and_web_apps_that": " ve milyonlarca insanın hayatına dokunabilecek web uygulamaları yapmayı seviyorum.",
     "for_more_details_about": "Deneyimlerim ve yeteneklerim hakkında daha fazla bilgi almak için özgeçmişimi indirebilirsiniz.",
     "about_me": "Hakkımda",
-    "what_i_ve_been_working": "Üzerinde Çalıştığım Projeler",
+    "what_i_ve_been_working": "Çalıştığım Projeler",
     "contact_me": "İletişime Geç",
     "reach_out_to_me_over": "Bana e-posta yoluyla ulaşabilir veya bu iletişim formunu doldurabilirsiniz. Size en kısa sürede geri döneceğim—söz!",
     "email_is_invalid": "E-posta adresi geçersiz",
+    "latest_push": "SON PUSH",
+    "commits": "Commit",
+    "just_now": "Az önce",
+    "minutes_ago": "dakika önce",
+    "hours_ago": "saat önce",
+    "days_ago": "gün önce",
+    "no_activity": "Bugün işlem yok",
     "submit": "Gönder",
     "your_name": "Adınız",
     "your_email_address": "E-posta adresiniz",
@@ -47,8 +54,5 @@
     "Resume": "Özgeçmiş",
     "Projects": "Projeler",
     "Contact": "İletişim",
-    "Social": "Bağlantılar",
-    "latest_push": "SON PUSH",
-    "commits": "Commit",
-    "no_activity": "Henüz işlem yok"
+    "Social": "Bağlantılar"
 }
