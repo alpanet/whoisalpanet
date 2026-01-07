@@ -9,6 +9,7 @@ import { Heading } from "./Heading";
 export default function About() {
   const { t } = useTranslation();
   const images = [
+    "images/projects/minglogo.png",
     "images/projects/visobl.png",
     "images/projects/mibu.webp",
     "images/projects/blendy-horizontal.png",
@@ -20,29 +21,38 @@ export default function About() {
       <span className="text-4xl">💬</span>
       <Heading className="font-black">{t("about_me")}</Heading>
       <div>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 my-10">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 my-10">
           {images.map((image, index) => (
             <motion.div
               key={image}
               initial={{
                 opacity: 0,
-                y: -50,
+                scale: 0.8,
+                rotate: index % 2 === 0 ? 2 : -2,
+              }}
+              whileInView={{
+                opacity: 1,
+                scale: 1,
                 rotate: 0,
               }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                rotate: index % 2 === 0 ? 3 : -3,
+              whileHover={{
+                scale: 1.05,
+                rotate: index % 2 === 0 ? 2 : -2,
+                transition: { duration: 0.2 }
               }}
-              transition={{ duration: 0.2, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="relative aspect-[4/3] w-full"
             >
-              <Image
-                src={image}
-                width={200}
-                height={400}
-                alt="about"
-                className="rounded-md transform rotate-3 shadow-xl block w-full h-40 md:h-60 hover:rotate-0 transition duration-200 object-scale-down"
-              />
+              <div className="absolute inset-0 bg-gray-100 dark:bg-neutral-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+                <Image
+                  src={image}
+                  fill
+                  alt="about"
+                  className="object-contain object-center"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                />
+              </div>
             </motion.div>
           ))}
         </div>

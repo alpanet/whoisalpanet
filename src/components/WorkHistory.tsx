@@ -19,11 +19,11 @@ export const WorkHistory = () => {
     <Container>
       <span className="text-4xl">💼</span>
       <Heading className="font-black">{t("work_history")}</Heading>
-      <Paragraph className="max-w-xl mt-4">
+      <Paragraph className="max-w-4xl mt-4">
         {t("i_m_a_frontend_ui_ux")}
         <Highlight>{t("building_products")}</Highlight>{t("and_web_apps_that")}
       </Paragraph>
-      <Paragraph className="max-w-lg mt-4 text-gray-400">
+      <Paragraph className="max-w-4xl mt-4 text-gray-600 dark:text-gray-400">
         {t("for_more_details_about")}
       </Paragraph>
       <DownloadCv></DownloadCv>

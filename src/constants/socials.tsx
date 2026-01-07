@@ -4,6 +4,7 @@ import {
   IconBrandInstagram,
   IconBrandLinkedin,
   IconBrandYoutube,
+  IconChartBar,
 } from "@tabler/icons-react";
 
 export const socials = [
@@ -31,6 +32,11 @@ export const socials = [
     href: "https://www.youtube.com/@AlpanetOffical",
     label: "YouTube",
     icon: IconBrandYoutube,
+  },
+  {
+    href: "https://forenet.alpanet.me/login",
+    label: "Forenet",
+    icon: IconChartBar,
   },
 
 ];

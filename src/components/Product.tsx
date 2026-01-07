@@ -1,6 +1,6 @@
 "use client";
-import { Product } from "@/types/products";
-import Image, { StaticImageData } from "next/image";
+import type { Product } from "@/types/products";
+import Image, { type StaticImageData } from "next/image";
 import React, { useState } from "react";
 import { Heading } from "./Heading";
 import { Paragraph } from "./Paragraph";

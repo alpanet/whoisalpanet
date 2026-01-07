@@ -1,6 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+@theme {
+  --font-sans: var(--font-inter);
+}
+
 
 @layer base {
   :root {
@@ -62,25 +66,29 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
+    outline-color: hsl(var(--ring) / 0.5);
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-}
 
-
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+  /* Smooth scrolling for better UX */
+  html {
+    scroll-behavior: smooth;
   }
-  body {
-    @apply bg-background text-foreground;
+
+  /* Better focus visibility */
+  :focus-visible {
+    outline-width: 2px;
+    outline-offset: 2px;
+    outline-color: hsl(var(--ring));
   }
 }

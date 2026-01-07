@@ -1,11 +1,25 @@
-import visobl from "public/images/projects/visobl.png";
-import mibu from "public/images/projects/mibu.webp";
-import blendyHorizontal from "public/images/projects/blendy-horizontal.png";
-import rx from "public/images/projects/rx.png";
-import sigortacim from "public/images/projects/sigortacimuzman.png";
-import kidsapp from "public/images/projects/KidsApp.png";
+import visobl from "@/../public/images/projects/visobl.png";
+import mibu from "@/../public/images/projects/mibu.webp";
+import blendyHorizontal from "@/../public/images/projects/blendy-horizontal.png";
+import rx from "@/../public/images/projects/rx.png";
+import sigortacim from "@/../public/images/projects/sigortacimuzman.png";
+import kidsapp from "@/../public/images/projects/KidsApp.png";
+import minglogo from "@/../public/images/projects/minglogo.png";
 
 export const products = [
+  {
+    href: "https://www.mingapp.co/",
+    title: "Ming",
+    description: "ming_app_description",
+    thumbnail: minglogo,
+    images: [minglogo, minglogo],
+    stack: ["React", "Nextjs", "Tailwindcss", ".Typescript", "Bootstrap"],
+    slug: "ming-teknoloji",
+    content: (
+      <div>
+      </div>
+    ),
+  },
   {
     href: "#",
     title: "Visobl",
@@ -35,7 +49,7 @@ export const products = [
   {
     href: "https://blendy.app/",
     title: "Blendy",
-    description:"i_joined_the_blendy_project",
+    description: "i_joined_the_blendy_project",
     thumbnail: blendyHorizontal,
     images: [blendyHorizontal, blendyHorizontal],
     stack: ["Nextjs", "shadcnUI", "Tailwindcss", "Figma"],
@@ -48,7 +62,7 @@ export const products = [
   {
     href: "#",
     title: "Kids App",
-    description:"kidsapp_is_a_personal_project",
+    description: "kidsapp_is_a_personal_project",
     thumbnail: kidsapp,
     images: [kidsapp, kidsapp],
     stack: ["Figma"],
@@ -75,7 +89,7 @@ export const products = [
   {
     href: "#",
     title: "Pharmacy Automation",
-    description:"the_pharmacy_automation_project",
+    description: "the_pharmacy_automation_project",
     thumbnail: rx,
     images: [rx, rx],
     stack: [".net", "posgtresql"],

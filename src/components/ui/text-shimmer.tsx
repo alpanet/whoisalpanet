@@ -18,14 +18,12 @@ export function TextShimmer({
   duration = 2,
   spread = 2,
 }: TextShimmerProps) {
-  const MotionComponent = motion(Component as React.ElementType);
-
   const dynamicSpread = useMemo(() => {
     return children.length * spread;
   }, [children, spread]);
 
   return (
-    <MotionComponent
+    <motion.span
       className={cn(
         'relative inline-block bg-[length:250%_100%,auto] bg-clip-text',
         'text-transparent [--base-color:#a1a1aa] [--base-gradient-color:#000]',
@@ -48,6 +46,6 @@ export function TextShimmer({
       }
     >
       {children}
-    </MotionComponent>
+    </motion.span>
   );
 }

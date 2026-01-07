@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
-import { motion, Variants } from "framer-motion"
+import { motion, type Variants } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 import { useMemo } from "react"
@@ -70,7 +70,7 @@ const Typewriter = ({
           }
           setCurrentTextIndex((prev) => (prev + 1) % texts.length)
           setCurrentIndex(0)
-          timeout = setTimeout(() => {}, waitTime)
+          timeout = setTimeout(() => { }, waitTime)
         } else {
           timeout = setTimeout(() => {
             setDisplayText((prev) => prev.slice(0, -1))

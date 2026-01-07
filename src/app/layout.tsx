@@ -1,59 +1,81 @@
-"use client"
-import { Sidebar } from "@/components/Sidebar";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
-import { Footer } from "@/components/Footer";
-import { Toaster } from "@/components/ui/toaster";
-import { ThemeProvider } from "@/components/theme-provider";
-import { I18nextProvider } from "react-i18next";
-import i18n from "@/lib/i18n";
+import type { Metadata, Viewport } from "next";
+import { siteConfig } from "@/constants/metadata";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
+  variable: "--font-inter",
 });
 
-const metadata: Metadata = {
-  title: "Alpaslan DOGAN - Frontend UI/UX Developer",
-  description:
-    "Alpaslan DOGAN—an ever-evolving developer, passionate designer",
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
+
+export const metadata: Metadata = {
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: "Alpaslan DOGAN", url: siteConfig.url }],
+  creator: "Alpaslan DOGAN",
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: "@alpaslandogan",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+  metadataBase: new URL(siteConfig.url), // Relatif URL'ler için base
 };
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
 }) {
   return (
-    <html lang={params.locale}>
+    <html lang="tr" className={inter.variable} suppressHydrationWarning>
       <body
         className={twMerge(
           inter.className,
           "flex antialiased h-screen overflow-hidden bg-gray-100"
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <I18nextProvider i18n={i18n}>
-            <Sidebar />
-            <div className="lg:pl-2 lg:pt-2 flex-1 overflow-y-auto bg-background text-foreground">
-              <div className="flex-1 bg-background text-foreground min-h-screen lg:rounded-tl-xl border border-transparent lg:bg-background overflow-y-auto">
-                {children}
-                <Toaster />
-                <Footer />
-              </div>
-            </div>
-          </I18nextProvider>
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
-    </html >
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
+    </html>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import { navlinks } from "@/constants/navlinks";
-import { Navlink } from "@/types/navlink";
+import type { Navlink } from "@/types/navlink";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
@@ -15,6 +15,7 @@ import { isMobile } from "@/lib/utils";
 import { ModeToggle } from "./ModeToggle";
 import { LanguageToggle } from "./LanguageToggle";
 import { useTranslation } from "react-i18next";
+import { GithubActivity } from "./GithubActivity";
 
 export const Sidebar = () => {
   const [open, setOpen] = useState(isMobile() ? false : true);
@@ -65,16 +66,17 @@ export const Navigation = ({
           href={link.href}
           onClick={() => isMobile() && setOpen(false)}
           className={twMerge(
-            "text-gray-500 hover:text-black dark:hover:text-white transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
-            isActive(link.href) && "bg-white shadow-lg border border-slate-100 text-black dark:text-black"
+            "text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-neutral-800/50 transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm",
+            isActive(link.href) && "bg-white dark:bg-neutral-800 shadow-lg border border-slate-100 dark:border-neutral-700 text-black dark:text-white"
           )}
         >
-          <link.icon
-            className={twMerge(
+          {link.icon && (() => {
+            const Icon = link.icon;
+            return <Icon className={twMerge(
               "h-4 w-4 flex-shrink-0",
               isActive(link.href) && "text-sky-500"
-            )}
-          />
+            )} />;
+          })()}
           <span>{t(link.label)}</span>
         </Link>
       ))}
@@ -88,18 +90,24 @@ export const Navigation = ({
           href={"/"}
           onClick={() => window.open(link.href, "_blank")}
           className={twMerge(
-            "text-gray-500 hover:text-black dark hover:text-white transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
+            "text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-neutral-800/50 transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
           )}
         >
-          <link.icon
-            className={twMerge(
+          {link.icon && (() => {
+            const Icon = link.icon;
+            return <Icon className={twMerge(
               "h-4 w-4 flex-shrink-0",
               isActive(link.href) && "text-sky-500"
-            )}
-          />
+            )} />;
+          })()}
           <span>{link.label}</span>
         </Link>
       ))}
+
+      <div className="px-2 pt-4">
+        <GithubActivity />
+      </div>
+
     </div>
   );
 };

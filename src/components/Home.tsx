@@ -28,10 +28,10 @@ export default function HomePage() {
           cursorChar={"_"}
         />
       </div>
-      <Paragraph className="max-w-xl mt-4">
+      <Paragraph className="max-w-3xl mt-4">
         {t("page_paragraph_first")}
       </Paragraph>
-      <Paragraph className="max-w-xl mt-4">
+      <Paragraph className="max-w-3xl mt-4">
         {t("page_paragraph_second")}
       </Paragraph>
       <DownloadCv></DownloadCv>

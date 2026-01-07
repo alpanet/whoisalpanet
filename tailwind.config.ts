@@ -1,10 +1,8 @@
 import type { Config } from "tailwindcss";
-const {
-  default: flattenColorPalette,
-} = require("tailwindcss/lib/util/flattenColorPalette");
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -17,8 +15,6 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "grid-pattern": "",
-        "grid-pattern-light": "",
       },
       colors: {
         primary: {
@@ -61,51 +57,43 @@ const config: Config = {
           "4": "hsl(var(--chart-4))",
           "5": "hsl(var(--chart-5))",
         },
+        "child-border": "hsl(var(--child-border))",
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      animation: {
+        "fade-in": "fadeIn 0.5s ease-in-out",
+        "slide-up": "slideUp 0.5s ease-out",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        slideUp: {
+          "0%": { transform: "translateY(10px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+      },
     },
   },
   plugins: [
     require("@tailwindcss/typography"),
-    addVariablesForColors,
     require("tailwindcss-animate"),
+    plugin(function ({ addBase }) {
+      addBase({
+        ":root": {
+          "--child-border": "0 0% 70%",
+        },
+        ".dark": {
+          "--child-border": "0 0% 50%",
+        },
+      });
+    }),
   ],
 } satisfies Config;
-
-function addVariablesForColors({ addBase, theme }: any) {
-	let allColors = flattenColorPalette(theme("colors"));
-  
-	let lightThemeVars = {
-	  "--background": "0 0% 100%", // Beyaz arka plan
-	  "--foreground": "0 0% 0%", // Siyah yazılar
-	  "--border": "0 0% 80%", // Açık gri border
-	  "--child-border": "0 0% 70%", // Sidebar dışındaki borderlar için özel renk
-	};
-  
-	let darkThemeVars = {
-	  "--background": "0 0% 10%", // Koyu arka plan
-	  "--foreground": "0 0% 100%", // Beyaz yazılar
-	  "--border": "0 0% 30%", // Koyu gri border
-	  "--child-border": "0 0% 50%", // Sidebar dışındaki borderlar için özel renk
-	};
-  
-	addBase({
-	  ":root": lightThemeVars,
-	  ".dark": darkThemeVars,
-	});
-  
-	let newVars = Object.fromEntries(
-	  Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-	);
-  
-	addBase({
-	  ":root": newVars,
-	});
-  }
-  
 
 export default config;

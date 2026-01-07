@@ -1,4 +1,5 @@
 name: publish-to-github-pages
+
 on:
   push:
     branches:
@@ -24,21 +25,37 @@ jobs:
       - name: Setup Node.js ⚙️
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies 🔧
-        run: npm install
+        run: npm ci
+
+      - name: Run TypeScript type check 🔍
+        run: npx tsc --noEmit
+        continue-on-error: false
 
       - name: Build with Next.js 🏗️
-        run: npm run build  # Bu, out dizinini oluşturmalı
+        run: npm run build
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
 
-      - name: Verify output directory
-        run: ls -la ./out  # Burada "out" klasörünün oluşturulup oluşturulmadığını kontrol ediyoruz
+      - name: Verify output directory 📂
+        run: |
+          echo "Checking build output..."
+          if [ ! -d "./out" ]; then
+            echo "Error: Output directory './out' not found!"
+            exit 1
+          fi
+          echo "Output directory contents:"
+          ls -la ./out
+          echo "✅ Build output verified successfully!"
 
       - name: Upload artifact 📡
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out  # "out" dizinini yükle
+          path: ./out
 
   deploy:
     environment:

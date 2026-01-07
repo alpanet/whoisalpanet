@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Heading } from "./Heading";
-import { Product } from "@/types/products";
+import type { Product } from "@/types/products";
 import { products } from "@/constants/products";
 import Link from "next/link";
 import Image from "next/image";
@@ -14,16 +14,19 @@ export const Products = () => {
   const { t } = useTranslation();
   return (
     <Container>
-      <span className="text-4xl">⚡</span>
-      <Heading className="font-black mb-4 h-12 text-2xl">
-        {t("what_i_ve_been_working")}
-      </Heading>
+
+      <div className="flex flex-col items-start justify-start mb-10">
+        <span className="text-4xl mb-2">⚡</span>
+        <Heading className="font-black text-2xl md:text-3xl text-left">
+          {t("what_i_ve_been_working")}
+        </Heading>
+      </div>
 
       <div>
-        <div className="grid grid-cols-1  gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {products.map((product: Product, idx: number) => (
             <motion.div
-              key={product.href}
+              key={`product-${idx}-${product.slug || product.title}`}
               initial={{
                 opacity: 0,
                 x: -50,
@@ -36,17 +39,18 @@ export const Products = () => {
             >
               <Link
                 href={product.href}
-                key={product.href}
-                className="group flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 hover:bg-gray-50 rounded-2xl transition duration-200 pt-4 items-center"
+                className="group flex flex-col space-y-4 hover:bg-gray-50 dark:hover:bg-neutral-800 rounded-2xl transition duration-200 p-4 h-full border border-transparent hover:border-gray-100 dark:hover:border-neutral-800"
               >
-                <Image
-                  src={product.thumbnail}
-                  alt="thumbnail"
-                  height="200"
-                  width="200"
-                  className="rounded-md object-scale-down"
-                />
-                <div className="flex flex-col justify-between">
+                <div className="relative w-full h-64 overflow-hidden rounded-xl bg-gray-100 dark:bg-neutral-900 border border-gray-100 dark:border-neutral-800 p-4">
+                  <Image
+                    src={product.thumbnail}
+                    alt="thumbnail"
+                    fill
+                    className="object-contain transform group-hover:scale-105 transition-transform duration-500"
+                    quality={90}
+                  />
+                </div>
+                <div className="flex flex-col justify-between flex-1 space-y-4">
                   <div>
                     <Heading
                       as="h4"
@@ -54,7 +58,7 @@ export const Products = () => {
                     >
                       {product.title}
                     </Heading>
-                    <Paragraph className="text-sm md:text-sm lg:text-sm mt-2 max-w-xl">
+                    <Paragraph className="text-sm md:text-sm lg:text-base mt-2">
                       {t(product.description)}
                     </Paragraph>
                   </div>
@@ -62,7 +66,7 @@ export const Products = () => {
                     {product.stack?.map((stack: string) => (
                       <span
                         key={stack}
-                        className="text-xs  md:text-xs lg:text-xs bg-blue-100 px-2 py-1 rounded-sm text-gray-600"
+                        className="text-xs md:text-xs lg:text-xs bg-gray-50 dark:bg-neutral-800 px-2 py-1 rounded-sm text-secondary-foreground"
                       >
                         {stack}
                       </span>
